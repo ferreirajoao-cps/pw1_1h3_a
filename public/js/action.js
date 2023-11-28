@@ -6,12 +6,22 @@ const cadastro = document.getElementById("cadastro")
 login.addEventListener("click", (e)=> {
     let user = document.getElementById("usuario").value 
     let senha = document.getElementById("senha").value
-    console.table(userLogin[0])
+    let obj = {email: user, senha: senha}
+    encontarUsuario(obj)
+    
 })
-cadastro.addEventListener("click", (e) => {
-    var usuario =userLogin.find((userLogin) => userLogin.email === "ferreirajoaogabriel14@gmail.com")
-    console.log(usuario)
-})
-function encontarUsuario(value, index, array){
-    console.table(value.email)
-}
+function encontarUsuario(value){
+    var usuario = userLogin.find((obj) => obj.email === value.email)
+    if(senha.value === "", value.email === ""){
+        alert("Se F####! campos vazios")
+    }
+        else if  (usuario.senha === value.senha){
+            window.location.href = "127.0.0.1:5000/homeUsuario.html"
+        }
+          
+        else{
+            alert("Se F####! Para o email: "+value.email)
+        }
+    
+
+} 
